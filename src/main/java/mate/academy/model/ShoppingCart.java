@@ -16,9 +16,10 @@ public class ShoppingCart {
     @Id
     @MapsId
     private Long id;
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "shoppingCart", fetch = FetchType.LAZY)
     private List<Ticket> tickets;
-    @OneToOne(mappedBy = "shopping_carts")
+    @OneToOne
+    @MapsId
     @JoinColumn(name = "user_id")
     private User user;
 
